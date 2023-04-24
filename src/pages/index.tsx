@@ -1,7 +1,11 @@
 import { type NextPage } from "next";
 import { WeatherItem } from "~/components/weatherItem";
 import dayjs from "dayjs";
-
+import { WiThermometer } from "react-icons/wi";
+import { WiBarometer } from "react-icons/wi";
+import { WiDaySunny } from "react-icons/wi";
+import { WiSmog } from "react-icons/wi";
+WiBarometer;
 const days = [
   "Sunday",
   "Monday",
@@ -26,7 +30,7 @@ function getDate() {
     " " +
     dayjs().date().toLocaleString("en-US", { minimumIntegerDigits: 2 }) +
     "." +
-    dayjs().month().toLocaleString("en-US", { minimumIntegerDigits: 2 })
+    (dayjs().month() + 1).toLocaleString("en-US", { minimumIntegerDigits: 2 })
   );
 }
 
@@ -39,10 +43,18 @@ const Home: NextPage = () => {
         </div>
         <div className="absolute flex h-full w-full items-center justify-center">
           <div className="grid grid-cols-2 grid-rows-2 place-items-center gap-12">
-            <WeatherItem name="01"></WeatherItem>
-            <WeatherItem name="02"></WeatherItem>
-            <WeatherItem name="03"></WeatherItem>
-            <WeatherItem name="04"></WeatherItem>
+            <WeatherItem>
+              <WiThermometer />
+            </WeatherItem>
+            <WeatherItem>
+              <WiDaySunny />
+            </WeatherItem>
+            <WeatherItem>
+              <WiBarometer />
+            </WeatherItem>
+            <WeatherItem>
+              <WiSmog />
+            </WeatherItem>
           </div>
         </div>
         <div className="absolute bottom-0 flex h-1/4 w-full place-items-center justify-center">
